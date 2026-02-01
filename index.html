@@ -49,12 +49,21 @@ nav {
   z-index: 5;
 }
 
+/* LOGO ALANI */
 .logo {
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-size: 1.5em;
+  font-weight: bold;
 }
 
-/* DESKTOP MENÜ (ÇOK DAHA BÜYÜK) */
+.logo img {
+  width: 42px;
+  height: 42px;
+}
+
+/* DESKTOP MENÜ */
 .menu-desktop {
   display: flex;
   gap: 50px;
@@ -74,7 +83,7 @@ nav {
   cursor: pointer;
 }
 
-/* MOBİL MENÜ (DEV BOYUT) */
+/* MOBİL MENÜ */
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -110,7 +119,7 @@ nav {
   position: relative;
   z-index: 1;
   min-height: 100vh;
-  padding-top: 100px;
+  padding-top: 110px;
   text-align: center;
 }
 
@@ -144,18 +153,10 @@ h1 {
   border-radius: 15px;
   width: 280px;
   padding: 30px 20px;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
 .card h3 {
   font-size: 1.4em;
-  margin-bottom: 10px;
-}
-
-.card p {
-  font-size: 1em;
-  opacity: 0.85;
 }
 
 /* İMZA */
@@ -174,7 +175,10 @@ h1 {
 <body>
 
 <nav>
-  <div class="logo">🌌 KozmikOdak</div>
+  <div class="logo">
+    <img src="logo.png" alt="KozmikOdak Logo">
+    KozmikOdak
+  </div>
 
   <div class="menu-desktop">
     <a href="index.html">Ana Sayfa</a>
@@ -194,26 +198,9 @@ h1 {
 <canvas id="stars"></canvas>
 
 <div class="content">
-  <h1>🌌 KozmikOdak</h1>
+  <h1>KozmikOdak</h1>
   <div class="subtitle">yakında sizlerleyiz…</div>
   <div class="tagline">Durmak yok, araştırmaya devam.</div>
-
-  <div class="cards">
-    <div class="card">
-      <h3>🔭 Astronomi</h3>
-      <p>Evren, galaksiler, yıldızlar ve kozmik olaylar.</p>
-    </div>
-
-    <div class="card">
-      <h3>🧠 Bilim & Merak</h3>
-      <p>Bilimsel düşünce, keşifler ve merak uyandıran konular.</p>
-    </div>
-
-    <div class="card">
-      <h3>🚀 Yakında</h3>
-      <p>Kendi makalelerim ve özgün içerikler çok yakında.</p>
-    </div>
-  </div>
 </div>
 
 <div class="signature">@İsmail Eren KENANOĞLU</div>
@@ -235,9 +222,7 @@ window.addEventListener("resize", resize);
 resize();
 
 const stars = [];
-const STAR_COUNT = Math.floor((window.innerWidth * window.innerHeight) / 9000);
-
-for (let i = 0; i < STAR_COUNT; i++) {
+for (let i = 0; i < 180; i++) {
   stars.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
@@ -247,18 +232,16 @@ for (let i = 0; i < STAR_COUNT; i++) {
 }
 
 function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0,0,canvas.width,canvas.height);
   ctx.fillStyle = "white";
-
-  for (const star of stars) {
+  for (const s of stars) {
     ctx.beginPath();
-    ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
     ctx.fill();
-
-    star.y += star.s;
-    if (star.y > canvas.height) {
-      star.y = 0;
-      star.x = Math.random() * canvas.width;
+    s.y += s.s;
+    if (s.y > canvas.height) {
+      s.y = 0;
+      s.x = Math.random() * canvas.width;
     }
   }
   requestAnimationFrame(draw);
