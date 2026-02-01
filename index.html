@@ -5,31 +5,49 @@
   <title>KozmikOdak</title>
 
   <style>
-    body {
+    html, body {
       margin: 0;
-      min-height: 100vh;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
       font-family: "Segoe UI", Arial, sans-serif;
-      color: #ffffff;
+      color: #fff;
+    }
+
+    /* Arka plan */
+    body {
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85)),
+        url("https://images-assets.nasa.gov/image/PIA12235/PIA12235~orig.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Yıldız katmanı */
+    canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+    }
+
+    /* İçerik */
+    .content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-
-      /* YILDIZLI UZAY ARKA PLAN */
-      background-image:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85)),
-        url("https://images-assets.nasa.gov/image/PIA12235/PIA12235~orig.jpg");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+      backdrop-filter: blur(2px);
     }
 
     h1 {
       font-size: 3.4em;
       letter-spacing: 2px;
       margin-bottom: 10px;
-      text-shadow: 0 0 15px rgba(255,255,255,0.3);
+      text-shadow: 0 0 15px rgba(255,255,255,0.35);
     }
 
     p {
@@ -49,8 +67,57 @@
 </head>
 
 <body>
-  <h1>🌌 KozmikOdak</h1>
-  <p>Durmak yok, araştırmaya devam.</p>
-  <div class="tag">Astronomi • Uzay • Bilim</div>
+  <!-- Yıldızlar -->
+  <canvas id="stars"></canvas>
+
+  <!-- İçerik -->
+  <div class="content">
+    <h1>🌌 KozmikOdak</h1>
+    <p>Durmak yok, araştırmaya devam.</p>
+    <div class="tag">Astronomi • Uzay • Bilim</div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("stars");
+    const ctx = canvas.getContext("2d");
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    const STAR_COUNT = Math.floor((window.innerWidth * window.innerHeight) / 8000);
+    const stars = [];
+
+    for (let i = 0; i < STAR_COUNT; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.2 + 0.3,
+        s: Math.random() * 0.2 + 0.05
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "white";
+
+      for (const star of stars) {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        star.y += star.s;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
 </body>
 </html>
