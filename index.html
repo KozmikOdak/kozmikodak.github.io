@@ -14,7 +14,6 @@
       color: #fff;
     }
 
-    /* Arka plan */
     body {
       background:
         linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85)),
@@ -23,14 +22,43 @@
       background-position: center;
     }
 
-    /* Yıldız katmanı */
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(6px);
+      z-index: 2;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 1px;
+      opacity: 0.85;
+      transition: opacity 0.2s, border-bottom 0.2s;
+      padding-bottom: 4px;
+    }
+
+    nav a:hover {
+      opacity: 1;
+      border-bottom: 2px solid #fff;
+    }
+
+    /* ===== YILDIZLAR ===== */
     canvas {
       position: fixed;
       inset: 0;
       z-index: 0;
     }
 
-    /* İçerik */
+    /* ===== İÇERİK ===== */
     .content {
       position: relative;
       z-index: 1;
@@ -40,7 +68,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      backdrop-filter: blur(2px);
+      padding-top: 60px;
     }
 
     h1 {
@@ -67,16 +95,25 @@
 </head>
 
 <body>
-  <!-- Yıldızlar -->
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#">Ana Sayfa</a>
+    <a href="#">Blog</a>
+    <a href="#">Hakkında</a>
+  </nav>
+
+  <!-- YILDIZLAR -->
   <canvas id="stars"></canvas>
 
-  <!-- İçerik -->
+  <!-- İÇERİK -->
   <div class="content">
     <h1>🌌 KozmikOdak</h1>
     <p>Durmak yok, araştırmaya devam.</p>
     <div class="tag">Astronomi • Uzay • Bilim</div>
   </div>
 
+  <!-- YILDIZ SCRIPT -->
   <script>
     const canvas = document.getElementById("stars");
     const ctx = canvas.getContext("2d");
@@ -119,5 +156,6 @@
     }
     draw();
   </script>
+
 </body>
 </html>
