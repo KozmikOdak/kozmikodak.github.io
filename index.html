@@ -24,7 +24,7 @@ body {
   background-position: center;
 }
 
-/* ===== CANVAS ===== */
+/* ===== YILDIZ CANVAS ===== */
 canvas {
   position: fixed;
   inset: 0;
@@ -38,8 +38,8 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
-  padding: 0 20px;
+  height: 70px;
+  padding: 0 25px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -51,43 +51,45 @@ nav {
 
 .logo {
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1.3em;
 }
 
-/* Desktop menu */
+/* ===== DESKTOP MENU (BÜYÜTÜLDÜ) ===== */
 .menu-desktop {
   display: flex;
-  gap: 25px;
+  gap: 40px;
 }
 
 .menu-desktop a {
   color: white;
   text-decoration: none;
-  opacity: 0.85;
+  font-size: 1.3em;
+  padding: 10px 5px;
+  opacity: 0.9;
 }
 
-/* Hamburger */
+/* ===== HAMBURGER ===== */
 .hamburger {
   display: none;
-  font-size: 2.2em;
+  font-size: 2.8em;
   cursor: pointer;
   user-select: none;
 }
 
-/* ===== MOBİL YAN MENÜ ===== */
+/* ===== MOBİL YAN MENÜ (BÜYÜTÜLDÜ) ===== */
 .mobile-menu {
   position: fixed;
   top: 0;
-  right: -260px;
-  width: 260px;
+  right: -300px;
+  width: 300px;
   height: 100%;
-  background: rgba(0,0,0,0.95);
-  backdrop-filter: blur(10px);
-  padding: 80px 20px;
+  background: rgba(0,0,0,0.96);
+  backdrop-filter: blur(12px);
+  padding: 90px 25px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 35px;
   transition: right 0.3s ease;
   z-index: 6;
 }
@@ -95,7 +97,7 @@ nav {
 .mobile-menu a {
   color: white;
   text-decoration: none;
-  font-size: 1.4em;
+  font-size: 1.8em;
 }
 
 .mobile-menu.active {
@@ -123,25 +125,36 @@ nav {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-top: 60px;
+  padding-top: 70px;
 }
 
 h1 {
-  font-size: 3em;
-  margin-bottom: 8px;
+  font-size: 3.2em;
+  margin-bottom: 10px;
   text-shadow: 0 0 20px rgba(255,255,255,0.35);
 }
 
 .subtitle {
-  font-size: 1.1em;
+  font-size: 1.2em;
   opacity: 0.8;
   letter-spacing: 1px;
   margin-bottom: 10px;
 }
 
 .tagline {
+  font-size: 1.05em;
   opacity: 0.9;
-  font-size: 1em;
+}
+
+/* ===== SAĞ ALT İMZA ===== */
+.signature {
+  position: fixed;
+  right: 12px;
+  bottom: 10px;
+  font-size: 0.75em;
+  opacity: 0.5;
+  z-index: 4;
+  pointer-events: none;
 }
 </style>
 </head>
@@ -175,6 +188,9 @@ h1 {
   <div class="subtitle">yakında sizlerleyiz…</div>
   <div class="tagline">Durmak yok, araştırmaya devam.</div>
 </div>
+
+<!-- İMZA -->
+<div class="signature">@İsmail Eren KENANOĞLU</div>
 
 <script>
 function toggleMenu() {
