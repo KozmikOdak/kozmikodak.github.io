@@ -19,9 +19,9 @@
     /* ===== HEADER ===== */
     header {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 40px;
-      padding: 16px 24px;
+      padding: 14px 22px;
       background: rgba(0,0,0,0.6);
       backdrop-filter: blur(6px);
       position: sticky;
@@ -33,65 +33,74 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      white-space: nowrap;
     }
 
-    .logo img { height: 40px; }
+    .logo img {
+      height: 38px;
+    }
 
     .logo span {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: bold;
     }
 
     nav {
       display: flex;
-      gap: 28px;
+      gap: 22px;
     }
 
     nav a {
       text-decoration: none;
       color: #fff;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
+      white-space: nowrap;
     }
 
-    nav a:hover { color: #8ab4ff; }
+    nav a:hover {
+      color: #8ab4ff;
+    }
 
-    /* ===== BLOG ===== */
+    /* ===== MAIN ===== */
     main {
-      padding: 80px 20px 120px;
-      max-width: 900px;
+      max-width: 1100px;
       margin: auto;
+      padding: 80px 20px;
     }
 
-    h1 {
+    main h1 {
       text-align: center;
+      font-size: 2.8rem;
       margin-bottom: 50px;
     }
 
-    .post {
+    /* ===== BLOG KARTLARI ===== */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 26px;
+    }
+
+    .card {
       background: rgba(255,255,255,0.05);
       border-radius: 16px;
-      padding: 28px;
-      margin-bottom: 28px;
+      padding: 24px;
       opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp 1s ease forwards;
+      transform: translateY(40px);
+      animation: fadeUp 0.8s ease forwards;
     }
 
-    .post:nth-child(1) { animation-delay: 0.2s; }
-    .post:nth-child(2) { animation-delay: 0.4s; }
-    .post:nth-child(3) { animation-delay: 0.6s; }
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.25s; }
+    .card:nth-child(3) { animation-delay: 0.4s; }
 
-    .post:hover {
-      background: rgba(255,255,255,0.08);
-      box-shadow: 0 0 20px rgba(138,180,255,0.25);
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.4rem;
     }
 
-    footer {
-      position: fixed;
-      right: 10px;
-      bottom: 10px;
-      font-size: 0.75rem;
-      opacity: 0.6;
+    .card p {
+      opacity: 0.8;
     }
 
     @keyframes fadeUp {
@@ -100,6 +109,15 @@
         transform: translateY(0);
       }
     }
+
+    /* ===== FOOTER ===== */
+    footer {
+      position: fixed;
+      right: 10px;
+      bottom: 10px;
+      font-size: 0.75rem;
+      opacity: 0.6;
+    }
   </style>
 </head>
 
@@ -107,7 +125,7 @@
 
 <header>
   <div class="logo">
-    <img src="logo.png">
+    <img src="logo.png" alt="KozmikOdak Logo">
     <span>KozmikOdak</span>
   </div>
 
@@ -121,19 +139,21 @@
 <main>
   <h1>Blog</h1>
 
-  <div class="post">
-    <h3>🚀 Yakında</h3>
-    <p>KozmikOdak blog içerikleri çok yakında yayında olacak.</p>
-  </div>
+  <div class="cards">
+    <div class="card">
+      <h3>🌌 Evrenin Derinlikleri</h3>
+      <p>Evrenin bilinmeyen yönlerini birlikte keşfediyoruz.</p>
+    </div>
 
-  <div class="post">
-    <h3>🌌 Evren Neden Karanlık?</h3>
-    <p>Basit görünen ama derin bir soru…</p>
-  </div>
+    <div class="card">
+      <h3>🪐 Astronomi Notları</h3>
+      <p>Gezegenler, yıldızlar ve galaksiler hakkında yazılar.</p>
+    </div>
 
-  <div class="post">
-    <h3>🔭 Astronomi Neden Önemli?</h3>
-    <p>Gökyüzüne bakmak kendimizi anlamaktır.</p>
+    <div class="card">
+      <h3>🚀 Bilim & Teknoloji</h3>
+      <p>Uzay teknolojileri ve bilimsel gelişmeler.</p>
+    </div>
   </div>
 </main>
 
