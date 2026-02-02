@@ -3,18 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <title>KozmikOdak | Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+*{box-sizing:border-box;}
+
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  background:#0b0f1a;
   color:#fff;
+  background:
+    radial-gradient(circle at top, #0b0f2b, #000 70%);
+  min-height:100vh;
 }
 
-/* HEADER (AYNI) */
+/* HEADER */
 header{
-  background:rgba(0,0,0,0.65);
+  background: rgba(0,0,0,0.55);
   backdrop-filter: blur(6px);
   padding:28px 20px 22px;
   text-align:center;
@@ -36,6 +41,7 @@ header{
 .header-top span{
   font-size:2.3rem;
   font-weight:bold;
+  letter-spacing:1px;
 }
 
 nav{
@@ -48,30 +54,54 @@ nav a{
   color:#fff;
   text-decoration:none;
   font-size:1.55rem;
+  opacity:0.9;
 }
 
-nav a:hover{
-  color:#4da3ff;
-}
+nav a:hover{color:#8ab4ff;}
 
 /* BLOG */
-.blog{
-  padding:60px 10%;
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+h1{
+  text-align:center;
+  font-size:2.8rem;
+  margin-bottom:60px;
+}
+
+.cards{
   display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:28px;
 }
 
-.post{
-  background:#11182c;
-  padding:25px;
-  border-radius:12px;
-  transition:transform .4s, box-shadow .4s;
+.card{
+  background:rgba(255,255,255,0.06);
+  border-radius:16px;
+  padding:28px;
+  opacity:0;
+  transform:translateY(40px);
+  animation:fadeUp .9s ease forwards;
 }
 
-.post:hover{
-  transform:translateY(-12px) scale(1.02);
-  box-shadow:0 20px 40px rgba(0,0,0,.6);
+.card:nth-child(1){animation-delay:.1s;}
+.card:nth-child(2){animation-delay:.25s;}
+.card:nth-child(3){animation-delay:.4s;}
+
+@keyframes fadeUp{
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* FOOTER */
+footer{
+  position:fixed;
+  right:10px;
+  bottom:10px;
+  font-size:.75rem;
+  opacity:.6;
 }
 </style>
 </head>
@@ -80,10 +110,9 @@ nav a:hover{
 
 <header>
   <div class="header-top">
-    <img src="logo.png">
+    <img src="logo.png" alt="KozmikOdak Logo">
     <span>KozmikOdak</span>
   </div>
-
   <nav>
     <a href="index.html">Ana Sayfa</a>
     <a href="blog.html">Blog</a>
@@ -91,11 +120,19 @@ nav a:hover{
   </nav>
 </header>
 
-<div class="blog">
-  <div class="post">🛰️ James Webb Güncellemeleri</div>
-  <div class="post">🌌 Kara Delikler</div>
-  <div class="post">🚀 Mars Görevleri</div>
-</div>
+<main>
+  <h1>Blog</h1>
+
+  <div class="cards">
+    <div class="card">🌌 Evrenin Derinlikleri</div>
+    <div class="card">🪐 Astronomi Notları</div>
+    <div class="card">🚀 Bilim & Teknoloji</div>
+  </div>
+</main>
+
+<footer>
+  © @İsmail Eren KENANOĞLU
+</footer>
 
 </body>
 </html>
