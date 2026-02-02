@@ -1,304 +1,199 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<title>KozmikOdak</title>
+  <meta charset="UTF-8">
+  <title>KozmikOdak</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: black;
-  color: white;
-  overflow-x: hidden;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-/* ARKA PLAN */
-body {
-  background:
-    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
-    url("https://images-assets.nasa.gov/image/PIA12235/PIA12235~orig.jpg");
-  background-size: cover;
-  background-position: center;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #0b0f2b, #000);
+      color: #fff;
+      min-height: 100vh;
+    }
 
-/* YILDIZLAR */
-canvas {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
+    /* ===== ÜST MENÜ ===== */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-/* NAVBAR */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  padding: 0 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(10px);
-  z-index: 5;
-}
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-/* LOGO */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 1.5em;
-  font-weight: bold;
-}
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
 
-.logo img {
-  width: 42px;
-  height: 42px;
-}
+    .logo span {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
 
-/* MENÜ */
-.menu-desktop {
-  display: flex;
-  gap: 50px;
-}
+    nav a {
+      margin-left: 28px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.25rem; /* menü büyüklüğü */
+      transition: color 0.2s;
+    }
 
-.menu-desktop a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.6em;
-  padding: 12px;
-}
+    nav a:hover {
+      color: #8ab4ff;
+    }
 
-/* HAMBURGER */
-.hamburger {
-  display: none;
-  font-size: 3.2em;
-  cursor: pointer;
-}
+    /* ===== ANA ALAN ===== */
+    main {
+      text-align: center;
+      padding: 80px 20px;
+    }
 
-/* MOBİL MENÜ */
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  right: -320px;
-  width: 320px;
-  height: 100%;
-  background: rgba(0,0,0,0.97);
-  padding: 100px 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  transition: right 0.3s ease;
-  z-index: 6;
-}
+    main h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
 
-.mobile-menu a {
-  color: white;
-  text-decoration: none;
-  font-size: 2.2em;
-}
+    main p {
+      font-size: 1.3rem;
+      opacity: 0.85;
+      margin-bottom: 60px;
+    }
 
-.mobile-menu.active {
-  right: 0;
-}
+    /* ===== KARTLAR ===== */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
 
-@media (max-width: 768px) {
-  .menu-desktop { display: none; }
-  .hamburger { display: block; }
-}
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 14px;
+      padding: 30px;
+      transition: transform 0.2s, background 0.2s;
+    }
 
-/* ANA İÇERİK */
-.content {
-  position: relative;
-  z-index: 1;
-  padding-top: 120px;
-  text-align: center;
-}
+    .card:hover {
+      transform: translateY(-6px);
+      background: rgba(255,255,255,0.08);
+    }
 
-/* BAŞLIK */
-h1 {
-  font-size: 3.4em;
-}
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.4rem;
+    }
 
-.subtitle {
-  font-size: 1.3em;
-  opacity: 0.8;
-}
+    .card p {
+      font-size: 1.05rem;
+      opacity: 0.8;
+    }
 
-.tagline {
-  margin-bottom: 70px;
-}
+    /* ===== SOSYAL MEDYA ===== */
+    .social {
+      margin-top: 80px;
+    }
 
-/* KARTLAR */
-.cards {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding-bottom: 80px;
-}
+    .social a {
+      display: inline-block;
+      margin: 0 12px;
+      font-size: 1.2rem;
+      color: #8ab4ff;
+      text-decoration: none;
+    }
 
-.card {
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  width: 280px;
-  padding: 30px 20px;
-}
+    .social a:hover {
+      text-decoration: underline;
+    }
 
-.card h3 {
-  font-size: 1.4em;
-}
+    /* ===== SAĞ ALT İMZA ===== */
+    footer {
+      position: fixed;
+      right: 10px;
+      bottom: 10px;
+      font-size: 0.75rem;
+      opacity: 0.6;
+    }
 
-/* SOSYAL MEDYA */
-.social {
-  margin-bottom: 90px;
-}
+    /* ===== MOBİL ===== */
+    @media (max-width: 600px) {
+      nav a {
+        margin-left: 16px;
+        font-size: 1.15rem;
+      }
 
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
-/* INSTAGRAM BUTON */
-.social-links .ig {
-  text-decoration: none;
-  color: white;
-  font-size: 1.1em;
-  padding: 14px 32px;
-  border-radius: 40px;
-  background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.social-links .ig:hover {
-  transform: scale(1.12);
-  box-shadow: 0 0 25px rgba(255,255,255,0.4);
-}
-
-/* İMZA */
-.signature {
-  position: fixed;
-  right: 12px;
-  bottom: 10px;
-  font-size: 0.75em;
-  opacity: 0.5;
-  pointer-events: none;
-}
-</style>
+      main h1 {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<nav>
+<header>
   <div class="logo">
+    <!-- LOGO DOSYA ADI: logo.png -->
     <img src="logo.png" alt="KozmikOdak Logo">
-    KozmikOdak
+    <span>KozmikOdak</span>
   </div>
 
-  <div class="menu-desktop">
-    <a href="/">Ana Sayfa</a>
-    <a href="/blog.html">Blog</a>
-    <a href="/hakkinda.html">Hakkında</a>
-  </div>
+  <nav>
+    <a href="index.html">Ana Sayfa</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">Hakkında</a>
+  </nav>
+</header>
 
-  <div class="hamburger" onclick="toggleMenu()">☰</div>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu">
-  <a href="/">Ana Sayfa</a>
-  <a href="/blog.html">Blog</a>
-  <a href="/hakkinda.html">Hakkında</a>
-</div>
-
-<canvas id="stars"></canvas>
-
-<div class="content">
+<main>
   <h1>KozmikOdak</h1>
-  <div class="subtitle">yakında sizlerleyiz…</div>
-  <div class="tagline">Durmak yok, araştırmaya devam.</div>
+  <p>Yakında sizlerleyiz…</p>
 
-  <!-- KARTLAR -->
-  <div class="cards">
+  <section class="cards">
     <div class="card">
-      <h3>🔭 Astronomi</h3>
-      <p>Evren, galaksiler ve yıldızların hikâyesi.</p>
+      <h3>Astronomi</h3>
+      <p>Evren, yıldızlar ve bilinmeyenler üzerine içerikler.</p>
     </div>
-    <div class="card">
-      <h3>🧠 Bilim</h3>
-      <p>Bilimsel düşünce, deneyler ve keşifler.</p>
-    </div>
-    <div class="card">
-      <h3>🚀 Yakında</h3>
-      <p>Kendi makalelerim ve özgün içerikler.</p>
-    </div>
-  </div>
 
-  <!-- SOSYAL MEDYA -->
+    <div class="card">
+      <h3>Bilim</h3>
+      <p>Merak edenler için sade ve net anlatımlar.</p>
+    </div>
+
+    <div class="card">
+      <h3>Teknoloji</h3>
+      <p>Geleceği şekillendiren fikirler ve projeler.</p>
+    </div>
+  </section>
+
   <div class="social">
-    <h2>📡 Sosyal Medya</h2>
-    <div class="social-links">
-      <a class="ig"
-         href="https://www.instagram.com/kozmikodak?igsh=MW1ka3pnc252am1oNg%3D%3D&utm_source=qr"
-         target="_blank" rel="noopener">
-        📸 Instagram
-      </a>
-    </div>
+    <a href="https://www.instagram.com/kozmikodak?igsh=MW1ka3pnc252am1oNg%3D%3D&utm_source=qr" target="_blank">
+      Instagram
+    </a>
   </div>
-</div>
+</main>
 
-<div class="signature">@İsmail Eren KENANOĞLU</div>
-
-<script>
-function toggleMenu() {
-  document.getElementById("mobileMenu").classList.toggle("active");
-}
-
-/* YILDIZ ANİMASYONU */
-const canvas = document.getElementById("stars");
-const ctx = canvas.getContext("2d");
-
-function resize() {
-  canvas.width = innerWidth;
-  canvas.height = innerHeight;
-}
-addEventListener("resize", resize);
-resize();
-
-const stars = [];
-for (let i = 0; i < 200; i++) {
-  stars.push({
-    x: Math.random()*canvas.width,
-    y: Math.random()*canvas.height,
-    r: Math.random()*1.2+0.3,
-    s: Math.random()*0.3+0.05
-  });
-}
-
-function draw() {
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle = "white";
-  for (const s of stars) {
-    ctx.beginPath();
-    ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-    ctx.fill();
-    s.y += s.s;
-    if (s.y > canvas.height) {
-      s.y = 0;
-      s.x = Math.random()*canvas.width;
-    }
-  }
-  requestAnimationFrame(draw);
-}
-draw();
-</script>
+<footer>
+  © @İsmail Eren KENANOĞLU
+</footer>
 
 </body>
 </html>
