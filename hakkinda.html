@@ -2,19 +2,26 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>KozmikOdak | Hakkında</title>
+<title>KozmikOdak</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background:#0b0f1a;
-  color:#fff;
+*{
+  box-sizing:border-box;
 }
 
-/* HEADER */
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  color:#fff;
+  background:
+    radial-gradient(circle at top, #0b0f2b, #000 70%);
+  min-height:100vh;
+}
+
+/* ===== HEADER ===== */
 header{
-  background:rgba(0,0,0,0.65);
+  background: rgba(0,0,0,0.55);
   backdrop-filter: blur(6px);
   padding:28px 20px 22px;
   text-align:center;
@@ -36,6 +43,7 @@ header{
 .header-top span{
   font-size:2.3rem;
   font-weight:bold;
+  letter-spacing:1px;
 }
 
 nav{
@@ -48,27 +56,58 @@ nav a{
   color:#fff;
   text-decoration:none;
   font-size:1.55rem;
+  opacity:0.9;
 }
 
 nav a:hover{
-  color:#4da3ff;
+  color:#8ab4ff;
 }
 
-/* HAKKINDA */
-.about{
-  padding:80px 15%;
+/* ===== HERO ===== */
+.hero{
   text-align:center;
+  padding:90px 20px 70px;
 }
 
-.about h1{
-  font-size:2.4rem;
-  margin-bottom:20px;
+.hero h1{
+  font-size:3.2rem;
+  margin-bottom:12px;
 }
 
-.about p{
-  font-size:1.2rem;
-  line-height:1.7;
-  opacity:.9;
+.hero p{
+  font-size:1.3rem;
+  opacity:0.8;
+}
+
+/* ===== KARTLAR ===== */
+.cards{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap:28px;
+}
+
+.card{
+  background: rgba(255,255,255,0.06);
+  border-radius:16px;
+  padding:28px;
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  position:fixed;
+  right:10px;
+  bottom:10px;
+  font-size:0.75rem;
+  opacity:0.6;
 }
 </style>
 </head>
@@ -77,7 +116,7 @@ nav a:hover{
 
 <header>
   <div class="header-top">
-    <img src="logo.png">
+    <img src="logo.png" alt="KozmikOdak Logo">
     <span>KozmikOdak</span>
   </div>
 
@@ -88,17 +127,20 @@ nav a:hover{
   </nav>
 </header>
 
-<div class="about">
-  <h1>KozmikOdak Nedir?</h1>
-  <p>
-    KozmikOdak; uzay, astronomi ve bilimi sade, anlaşılır ve
-    görsel olarak etkileyici şekilde sunmayı amaçlayan
-    bağımsız bir projedir.
-    <br><br>
-    Amacımız evreni merak eden herkes için
-    güvenilir ve ilham verici bir kaynak olmak.
-  </p>
-</div>
+<section class="hero">
+  <h1>KozmikOdak</h1>
+  <p>Durmak yok, araştırmaya devam.</p>
+</section>
+
+<section class="cards">
+  <div class="card">🌌 Evren & Galaksiler</div>
+  <div class="card">🪐 Astronomi Notları</div>
+  <div class="card">🚀 Bilim & Teknoloji</div>
+</section>
+
+<footer>
+  © @İsmail Eren KENANOĞLU
+</footer>
 
 </body>
 </html>
