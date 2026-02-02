@@ -1,198 +1,86 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>KozmikOdak</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>KozmikOdak</title>
 
-  <style>
-    * { box-sizing: border-box; }
+<style>
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#0b0f1a;
+  color:#fff;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #0b0f2b, #000);
-      color: #ffffff;
-      min-height: 100vh;
-    }
+/* HEADER */
+header{
+  background:rgba(0,0,0,0.65);
+  backdrop-filter: blur(6px);
+  padding:28px 20px 22px;
+  text-align:center;
+}
 
-    /* ===== HEADER ===== */
-    header {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-      padding: 16px 24px;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(6px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+.header-top{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  margin-bottom:16px;
+}
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+.header-top img{
+  width:50px;
+  height:50px;
+}
 
-    .logo img {
-      height: 40px;
-    }
+.header-top span{
+  font-size:2.3rem;
+  font-weight:bold;
+}
 
-    .logo span {
-      font-size: 1.6rem;
-      font-weight: bold;
-    }
+nav{
+  display:flex;
+  justify-content:center;
+  gap:52px;
+}
 
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:1.55rem;
+  opacity:0.9;
+}
 
-    nav a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 1.3rem;
-      transition: color 0.2s;
-    }
+nav a:hover{
+  color:#4da3ff;
+}
 
-    nav a:hover {
-      color: #8ab4ff;
-    }
+/* KARTLAR */
+.main{
+  padding:60px 10%;
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
 
-    /* ===== ANA ALAN ===== */
-    main {
-      text-align: center;
-      padding: 90px 20px 60px;
-    }
+.card{
+  background:#11182c;
+  padding:25px;
+  border-radius:12px;
+  transition:transform .4s, box-shadow .4s;
+}
 
-    .hero-logo {
-      width: 140px;
-      margin-bottom: 20px;
-      opacity: 0.95;
-    }
-
-    main h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-
-    main p {
-      font-size: 1.3rem;
-      opacity: 0.85;
-      margin-bottom: 70px;
-    }
-
-    /* ===== KARTLAR ===== */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-      max-width: 1000px;
-      margin: 0 auto 80px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 16px;
-      padding: 32px;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp 1s ease forwards;
-      transition: background 0.2s, box-shadow 0.2s;
-    }
-
-    .card:nth-child(1) { animation-delay: 0.2s; }
-    .card:nth-child(2) { animation-delay: 0.4s; }
-    .card:nth-child(3) { animation-delay: 0.6s; }
-
-    .card:hover {
-      background: rgba(255,255,255,0.08);
-      box-shadow: 0 0 20px rgba(138,180,255,0.25);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      font-size: 1.5rem;
-    }
-
-    .card p {
-      opacity: 0.8;
-    }
-
-    /* ===== INSTAGRAM ===== */
-    .instagram-area {
-      text-align: center;
-      margin-bottom: 120px;
-    }
-
-    .insta-btn {
-      padding: 12px 26px;
-      border-radius: 30px;
-      background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
-      color: #fff;
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .insta-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(221,42,123,0.6);
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      position: fixed;
-      right: 10px;
-      bottom: 10px;
-      font-size: 0.75rem;
-      opacity: 0.6;
-    }
-
-    /* ===== ANİMASYON ===== */
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* ===== MOBİL ===== */
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        gap: 14px;
-      }
-
-      nav {
-        gap: 18px;
-      }
-
-      nav a {
-        font-size: 1.15rem;
-      }
-
-      main h1 {
-        font-size: 2.4rem;
-      }
-
-      .hero-logo {
-        width: 110px;
-      }
-    }
-  </style>
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 15px 30px rgba(0,0,0,.5);
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">
+  <div class="header-top">
     <img src="logo.png" alt="KozmikOdak Logo">
     <span>KozmikOdak</span>
   </div>
@@ -204,43 +92,11 @@
   </nav>
 </header>
 
-<main>
-  <img src="logo.png" alt="KozmikOdak Logo" class="hero-logo">
-
-  <h1>KozmikOdak</h1>
-  <p>Yakında sizlerleyiz…</p>
-
-  <section class="cards">
-    <div class="card">
-      <h3>🌌 Astronomi</h3>
-      <p>Evren, yıldızlar ve bilinmeyenler üzerine içerikler.</p>
-    </div>
-
-    <div class="card">
-      <h3>🔬 Bilim</h3>
-      <p>Merak edenler için sade ve anlaşılır anlatımlar.</p>
-    </div>
-
-    <div class="card">
-      <h3>💻 Teknoloji</h3>
-      <p>Geleceği şekillendiren fikirler ve projeler.</p>
-    </div>
-  </section>
-
-  <div class="instagram-area">
-    <a
-      href="https://www.instagram.com/kozmikodak?igsh=MW1ka3pnc252am1oNg%3D%3D&utm_source=qr"
-      target="_blank"
-      class="insta-btn"
-    >
-      📷 Instagram
-    </a>
-  </div>
-</main>
-
-<footer>
-  © @İsmail Eren KENANOĞLU
-</footer>
+<div class="main">
+  <div class="card">Uzay ve Astronomi</div>
+  <div class="card">Bilimsel Keşifler</div>
+  <div class="card">Kozmik Haberler</div>
+</div>
 
 </body>
 </html>
