@@ -6,19 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: radial-gradient(circle at top, #0b0f2b, #000);
-      color: #fff;
+      color: #ffffff;
       min-height: 100vh;
     }
 
-    /* ===== ÜST MENÜ ===== */
     header {
       display: flex;
       align-items: center;
@@ -37,32 +34,47 @@
       gap: 10px;
     }
 
-    .logo img {
-      height: 40px;
-      width: auto;
-    }
+    .logo img { height: 40px; }
 
     .logo span {
       font-size: 1.6rem;
       font-weight: bold;
     }
 
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
     nav a {
       margin-left: 28px;
       text-decoration: none;
       color: #fff;
-      font-size: 1.25rem; /* menü büyüklüğü */
-      transition: color 0.2s;
+      font-size: 1.3rem;
     }
 
-    nav a:hover {
-      color: #8ab4ff;
+    nav a:hover { color: #8ab4ff; }
+
+    .insta-btn {
+      padding: 10px 20px;
+      border-radius: 30px;
+      background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+      color: #fff !important;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    /* ===== ANA ALAN ===== */
+    .insta-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(221,42,123,0.6);
+    }
+
     main {
       text-align: center;
-      padding: 80px 20px;
+      padding: 90px 20px;
     }
 
     main h1 {
@@ -73,10 +85,9 @@
     main p {
       font-size: 1.3rem;
       opacity: 0.85;
-      margin-bottom: 60px;
+      margin-bottom: 70px;
     }
 
-    /* ===== KARTLAR ===== */
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -87,44 +98,17 @@
 
     .card {
       background: rgba(255,255,255,0.05);
-      border-radius: 14px;
-      padding: 30px;
-      transition: transform 0.2s, background 0.2s;
+      border-radius: 16px;
+      padding: 32px;
+      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
     }
 
     .card:hover {
       transform: translateY(-6px);
       background: rgba(255,255,255,0.08);
+      box-shadow: 0 0 20px rgba(138,180,255,0.25);
     }
 
-    .card h3 {
-      margin-top: 0;
-      font-size: 1.4rem;
-    }
-
-    .card p {
-      font-size: 1.05rem;
-      opacity: 0.8;
-    }
-
-    /* ===== SOSYAL MEDYA ===== */
-    .social {
-      margin-top: 80px;
-    }
-
-    .social a {
-      display: inline-block;
-      margin: 0 12px;
-      font-size: 1.2rem;
-      color: #8ab4ff;
-      text-decoration: none;
-    }
-
-    .social a:hover {
-      text-decoration: underline;
-    }
-
-    /* ===== SAĞ ALT İMZA ===== */
     footer {
       position: fixed;
       right: 10px;
@@ -133,16 +117,13 @@
       opacity: 0.6;
     }
 
-    /* ===== MOBİL ===== */
     @media (max-width: 600px) {
       nav a {
         margin-left: 16px;
         font-size: 1.15rem;
       }
 
-      main h1 {
-        font-size: 2.4rem;
-      }
+      main h1 { font-size: 2.4rem; }
     }
   </style>
 </head>
@@ -151,7 +132,6 @@
 
 <header>
   <div class="logo">
-    <!-- LOGO DOSYA ADI: logo.png -->
     <img src="logo.png" alt="KozmikOdak Logo">
     <span>KozmikOdak</span>
   </div>
@@ -160,6 +140,14 @@
     <a href="index.html">Ana Sayfa</a>
     <a href="blog.html">Blog</a>
     <a href="hakkinda.html">Hakkında</a>
+
+    <a
+      href="https://www.instagram.com/kozmikodak?igsh=MW1ka3pnc252am1oNg%3D%3D&utm_source=qr"
+      target="_blank"
+      class="insta-btn"
+    >
+      📷 Instagram
+    </a>
   </nav>
 </header>
 
@@ -169,26 +157,20 @@
 
   <section class="cards">
     <div class="card">
-      <h3>Astronomi</h3>
+      <h3>🌌 Astronomi</h3>
       <p>Evren, yıldızlar ve bilinmeyenler üzerine içerikler.</p>
     </div>
 
     <div class="card">
-      <h3>Bilim</h3>
-      <p>Merak edenler için sade ve net anlatımlar.</p>
+      <h3>🔬 Bilim</h3>
+      <p>Merak edenler için sade ve anlaşılır anlatımlar.</p>
     </div>
 
     <div class="card">
-      <h3>Teknoloji</h3>
+      <h3>💻 Teknoloji</h3>
       <p>Geleceği şekillendiren fikirler ve projeler.</p>
     </div>
   </section>
-
-  <div class="social">
-    <a href="https://www.instagram.com/kozmikodak?igsh=MW1ka3pnc252am1oNg%3D%3D&utm_source=qr" target="_blank">
-      Instagram
-    </a>
-  </div>
 </main>
 
 <footer>
