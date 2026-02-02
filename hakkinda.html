@@ -2,24 +2,22 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>KozmikOdak</title>
+<title>KozmikOdak | Hakkında</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box;}
 
 body{
   margin:0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   color:#fff;
   background:
     radial-gradient(circle at top, #0b0f2b, #000 70%);
   min-height:100vh;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 header{
   background: rgba(0,0,0,0.55);
   backdrop-filter: blur(6px);
@@ -59,55 +57,36 @@ nav a{
   opacity:0.9;
 }
 
-nav a:hover{
-  color:#8ab4ff;
-}
+nav a:hover{color:#8ab4ff;}
 
-/* ===== HERO ===== */
-.hero{
-  text-align:center;
-  padding:90px 20px 70px;
-}
-
-.hero h1{
-  font-size:3.2rem;
-  margin-bottom:12px;
-}
-
-.hero p{
-  font-size:1.3rem;
-  opacity:0.8;
-}
-
-/* ===== KARTLAR ===== */
-.cards{
-  max-width:1100px;
+/* HAKKINDA */
+main{
+  max-width:900px;
   margin:auto;
-  padding:20px;
-  display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-  gap:28px;
+  padding:90px 20px;
+  text-align:center;
 }
 
-.card{
-  background: rgba(255,255,255,0.06);
-  border-radius:16px;
-  padding:28px;
-  transition: transform .4s ease, box-shadow .4s ease;
+.about{
+  background:rgba(255,255,255,0.06);
+  border-radius:18px;
+  padding:50px 40px;
+  animation:fadeUp .9s ease forwards;
+  opacity:0;
+  transform:translateY(40px);
 }
 
-.card:hover{
-  transform: translateY(-10px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+@keyframes fadeUp{
+  to{opacity:1;transform:translateY(0);}
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer{
   position:fixed;
   right:10px;
   bottom:10px;
-  font-size:0.75rem;
-  opacity:0.6;
+  font-size:.75rem;
+  opacity:.6;
 }
 </style>
 </head>
@@ -119,7 +98,6 @@ footer{
     <img src="logo.png" alt="KozmikOdak Logo">
     <span>KozmikOdak</span>
   </div>
-
   <nav>
     <a href="index.html">Ana Sayfa</a>
     <a href="blog.html">Blog</a>
@@ -127,16 +105,24 @@ footer{
   </nav>
 </header>
 
-<section class="hero">
-  <h1>KozmikOdak</h1>
-  <p>Durmak yok, araştırmaya devam.</p>
-</section>
-
-<section class="cards">
-  <div class="card">🌌 Evren & Galaksiler</div>
-  <div class="card">🪐 Astronomi Notları</div>
-  <div class="card">🚀 Bilim & Teknoloji</div>
-</section>
+<main>
+  <div class="about">
+    <h1>Hakkında</h1>
+    <p>
+      <strong>KozmikOdak</strong>, evrenin gizemlerine,
+      astronomiye ve bilime ilgi duyan herkes için
+      oluşturulmuş bir keşif platformudur.
+    </p>
+    <p>
+      Bu proje <strong>İsmail Eren KENANOĞLU</strong>
+      tarafından geliştirilmektedir.
+    </p>
+    <p>
+      Şu anda geliştirme aşamasındadır ve çok yakında
+      özgün içeriklerle sizlerle olacaktır.
+    </p>
+  </div>
+</main>
 
 <footer>
   © @İsmail Eren KENANOĞLU
