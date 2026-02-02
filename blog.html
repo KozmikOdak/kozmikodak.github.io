@@ -16,45 +16,44 @@
       min-height: 100vh;
     }
 
-    /* ===== HEADER ===== */
+    /* ===== HEADER (GÖRSELDEKİ GİBİ) ===== */
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 22px;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.65);
       backdrop-filter: blur(6px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      padding: 26px 20px 20px;
+      text-align: center;
     }
 
-    .logo {
+    .header-top {
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 10px;
-      white-space: nowrap;
+      gap: 14px;
+      margin-bottom: 14px;
     }
 
-    .logo img {
-      height: 38px;
+    .header-top img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
     }
 
-    .logo span {
-      font-size: 1.5rem;
+    .header-top span {
+      font-size: 2.2rem;
       font-weight: bold;
     }
 
     nav {
       display: flex;
-      gap: 22px;
+      justify-content: center;
+      gap: 48px;
     }
 
     nav a {
       text-decoration: none;
       color: #fff;
-      font-size: 1.25rem;
-      white-space: nowrap;
+      font-size: 1.5rem;
+      opacity: 0.9;
     }
 
     nav a:hover {
@@ -74,7 +73,7 @@
       margin-bottom: 50px;
     }
 
-    /* ===== BLOG KARTLARI ===== */
+    /* ===== BLOG KARTLARI + ANİMASYON ===== */
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -83,11 +82,11 @@
 
     .card {
       background: rgba(255,255,255,0.05);
-      border-radius: 16px;
-      padding: 24px;
+      border-radius: 18px;
+      padding: 26px;
       opacity: 0;
       transform: translateY(40px);
-      animation: fadeUp 0.8s ease forwards;
+      animation: fadeUp 0.9s ease forwards;
     }
 
     .card:nth-child(1) { animation-delay: 0.1s; }
@@ -96,7 +95,7 @@
 
     .card h3 {
       margin-top: 0;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
     }
 
     .card p {
@@ -124,7 +123,7 @@
 <body>
 
 <header>
-  <div class="logo">
+  <div class="header-top">
     <img src="logo.png" alt="KozmikOdak Logo">
     <span>KozmikOdak</span>
   </div>
@@ -142,12 +141,12 @@
   <div class="cards">
     <div class="card">
       <h3>🌌 Evrenin Derinlikleri</h3>
-      <p>Evrenin bilinmeyen yönlerini birlikte keşfediyoruz.</p>
+      <p>Evren, galaksiler ve bilinmeyen kozmik yapılar.</p>
     </div>
 
     <div class="card">
-      <h3>🪐 Astronomi Notları</h3>
-      <p>Gezegenler, yıldızlar ve galaksiler hakkında yazılar.</p>
+      <h3>🪐 Astronomi</h3>
+      <p>Gezegenler, yıldızlar ve uzay gözlemleri.</p>
     </div>
 
     <div class="card">
