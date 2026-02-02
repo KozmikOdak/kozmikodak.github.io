@@ -158,27 +158,29 @@ h1 {
 
 /* SOSYAL MEDYA */
 .social {
-  margin-bottom: 80px;
-}
-
-.social h2 {
-  margin-bottom: 20px;
+  margin-bottom: 90px;
 }
 
 .social-links {
   display: flex;
   justify-content: center;
   gap: 30px;
-  flex-wrap: wrap;
 }
 
-.social-links a {
+/* INSTAGRAM BUTON */
+.social-links .ig {
   text-decoration: none;
   color: white;
   font-size: 1.1em;
-  padding: 14px 26px;
-  border-radius: 30px;
-  background: rgba(255,255,255,0.15);
+  padding: 14px 32px;
+  border-radius: 40px;
+  background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.social-links .ig:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 25px rgba(255,255,255,0.4);
 }
 
 /* İMZA */
@@ -202,18 +204,18 @@ h1 {
   </div>
 
   <div class="menu-desktop">
-    <a href="index.html">Ana Sayfa</a>
-    <a href="blog.html">Blog</a>
-    <a href="hakkinda.html">Hakkında</a>
+    <a href="/">Ana Sayfa</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/hakkinda.html">Hakkında</a>
   </div>
 
   <div class="hamburger" onclick="toggleMenu()">☰</div>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Ana Sayfa</a>
-  <a href="blog.html">Blog</a>
-  <a href="hakkında.html">Hakkında</a>
+  <a href="/">Ana Sayfa</a>
+  <a href="/blog.html">Blog</a>
+  <a href="/hakkinda.html">Hakkında</a>
 </div>
 
 <canvas id="stars"></canvas>
@@ -243,9 +245,11 @@ h1 {
   <div class="social">
     <h2>📡 Sosyal Medya</h2>
     <div class="social-links">
-      <a href="#">Instagram</a>
-      <a href="#">X (Twitter)</a>
-      <a href="#">GitHub</a>
+      <a class="ig"
+         href="https://www.instagram.com/kozmikodak?igsh=MW1ka3pnc252am1oNg%3D%3D&utm_source=qr"
+         target="_blank" rel="noopener">
+        📸 Instagram
+      </a>
     </div>
   </div>
 </div>
@@ -257,7 +261,7 @@ function toggleMenu() {
   document.getElementById("mobileMenu").classList.toggle("active");
 }
 
-/* YILDIZLAR */
+/* YILDIZ ANİMASYONU */
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 
