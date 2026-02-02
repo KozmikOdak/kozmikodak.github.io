@@ -1,90 +1,228 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<title>KozmikOdak | Blog</title>
+  <meta charset="UTF-8">
+  <title>KozmikOdak | Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #000;
-  color: #fff;
-  <div class="signature">@İsmail Eren KENANOĞLU</div>
-}
-  .signature {
-  position: fixed;
-  right: 12px;
-  bottom: 10px;
-  font-size: 0.75em;
-  opacity: 0.5;
-  pointer-events: none;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-header {
-  padding: 20px;
-  text-align: center;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #0b0f2b, #000);
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-header a {
-  color: #aaa;
-  text-decoration: none;
-  font-size: 0.9em;
-}
+    /* ===== ÜST MENÜ ===== */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-main {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-.post {
-  margin-bottom: 40px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
+    .logo img {
+      height: 40px;
+    }
 
-.post h2 {
-  margin-bottom: 10px;
-}
+    .logo span {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
 
-.post p {
-  opacity: 0.85;
-  line-height: 1.6;
-}
-</style>
+    nav a {
+      margin-left: 28px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.25rem;
+    }
+
+    nav a:hover {
+      color: #8ab4ff;
+    }
+
+    /* ===== BLOG BAŞLIK ===== */
+    .hero {
+      text-align: center;
+      padding: 70px 20px 40px;
+      animation: fadeDown 1.2s ease forwards;
+      opacity: 0;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      opacity: 0.8;
+      font-size: 1.2rem;
+    }
+
+    /* ===== BLOG KARTLARI ===== */
+    .posts {
+      max-width: 900px;
+      margin: 40px auto 120px;
+      padding: 0 20px;
+      display: grid;
+      gap: 28px;
+    }
+
+    .post {
+      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 28px;
+      transform: translateY(30px);
+      opacity: 0;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .post:nth-child(1) { animation-delay: 0.2s; }
+    .post:nth-child(2) { animation-delay: 0.4s; }
+    .post:nth-child(3) { animation-delay: 0.6s; }
+
+    .post:hover {
+      background: rgba(255,255,255,0.09);
+      box-shadow: 0 0 20px rgba(138,180,255,0.25);
+    }
+
+    .post h2 {
+      margin-top: 0;
+      font-size: 1.6rem;
+    }
+
+    .post p {
+      opacity: 0.85;
+      line-height: 1.6;
+    }
+
+    /* ===== YILDIZ EFEKTİ ===== */
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background-image:
+        radial-gradient(1px 1px at 20% 30%, #fff, transparent),
+        radial-gradient(1px 1px at 80% 70%, #fff, transparent),
+        radial-gradient(1px 1px at 50% 90%, #fff, transparent),
+        radial-gradient(1px 1px at 10% 60%, #fff, transparent);
+      animation: starMove 40s linear infinite;
+      opacity: 0.3;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      position: fixed;
+      right: 10px;
+      bottom: 10px;
+      font-size: 0.75rem;
+      opacity: 0.6;
+    }
+
+    /* ===== ANİMASYONLAR ===== */
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes starMove {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
+    }
+
+    /* ===== MOBİL ===== */
+    @media (max-width: 600px) {
+      nav a {
+        margin-left: 16px;
+        font-size: 1.15rem;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
+<div class="stars"></div>
+
 <header>
-  <h1>📝 KozmikOdak Blog</h1>
-  <a href="index.html">← Ana Sayfa</a>
+  <div class="logo">
+    <img src="logo.png" alt="KozmikOdak Logo">
+    <span>KozmikOdak</span>
+  </div>
+
+  <nav>
+    <a href="index.html">Ana Sayfa</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">Hakkında</a>
+  </nav>
 </header>
 
-<main>
+<section class="hero">
+  <h1>Blog</h1>
+  <p>Bilim, astronomi ve merak üzerine yazılar</p>
+</section>
 
+<section class="posts">
   <div class="post">
-    <h2>🌌 Evren neden bu kadar büyük?</h2>
+    <h2>🚀 Yakında</h2>
     <p>
-      Evrenin neden bu kadar büyük olduğu sorusu,
-      modern kozmolojinin en ilginç problemlerinden biridir.
-      Genişleme, karanlık enerji ve kozmik enflasyon
-      bu sorunun merkezindedir.
+      KozmikOdak blogu çok yakında kendi makaleleriyle yayında olacak.
+      Şimdilik hazırlık aşamasındayız.
     </p>
   </div>
 
   <div class="post">
-    <h2>🛰️ James Webb bize ne gösteriyor?</h2>
+    <h2>🌌 Evren Neden Karanlık?</h2>
     <p>
-      James Webb Uzay Teleskobu,
-      evrenin en eski galaksilerini gözlemleyerek
-      yıldız oluşumunun başlangıcına ışık tutuyor.
+      Basit bir soru gibi görünür ama cevabı bizi milyarlarca yıl
+      öncesine götürür…
     </p>
   </div>
 
-</main>
+  <div class="post">
+    <h2>🔭 Astronomi Neden Önemli?</h2>
+    <p>
+      Gökyüzüne bakmak sadece yıldızları değil, kendimizi de anlamamızı sağlar.
+    </p>
+  </div>
+</section>
+
+<footer>
+  © @İsmail Eren KENANOĞLU
+</footer>
 
 </body>
 </html>
