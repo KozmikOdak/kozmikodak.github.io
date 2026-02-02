@@ -20,7 +20,7 @@
     header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 40px;
       padding: 16px 24px;
       background: rgba(0,0,0,0.6);
       backdrop-filter: blur(6px);
@@ -47,13 +47,14 @@
     nav {
       display: flex;
       align-items: center;
+      gap: 28px;
     }
 
     nav a {
-      margin-left: 28px;
       text-decoration: none;
       color: #fff;
       font-size: 1.3rem;
+      transition: color 0.2s;
     }
 
     nav a:hover {
@@ -96,11 +97,17 @@
       background: rgba(255,255,255,0.05);
       border-radius: 16px;
       padding: 32px;
-      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s ease forwards;
+      transition: background 0.2s, box-shadow 0.2s;
     }
 
+    .card:nth-child(1) { animation-delay: 0.2s; }
+    .card:nth-child(2) { animation-delay: 0.4s; }
+    .card:nth-child(3) { animation-delay: 0.6s; }
+
     .card:hover {
-      transform: translateY(-6px);
       background: rgba(255,255,255,0.08);
       box-shadow: 0 0 20px rgba(138,180,255,0.25);
     }
@@ -114,7 +121,7 @@
       opacity: 0.8;
     }
 
-    /* ===== INSTAGRAM ALANI (EN ALTTA) ===== */
+    /* ===== INSTAGRAM ===== */
     .instagram-area {
       text-align: center;
       margin-bottom: 120px;
@@ -148,10 +155,26 @@
       opacity: 0.6;
     }
 
+    /* ===== ANİMASYON ===== */
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     /* ===== MOBİL ===== */
     @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      nav {
+        gap: 18px;
+      }
+
       nav a {
-        margin-left: 16px;
         font-size: 1.15rem;
       }
 
@@ -182,7 +205,6 @@
 </header>
 
 <main>
-  <!-- ORTADAKİ LOGO + YAZI -->
   <img src="logo.png" alt="KozmikOdak Logo" class="hero-logo">
 
   <h1>KozmikOdak</h1>
@@ -205,7 +227,6 @@
     </div>
   </section>
 
-  <!-- INSTAGRAM EN ALTTA -->
   <div class="instagram-area">
     <a
       href="https://www.instagram.com/kozmikodak?igsh=MW1ka3pnc252am1oNg%3D%3D&utm_source=qr"
