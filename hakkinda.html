@@ -1,117 +1,83 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>KozmikOdak | Hakkında</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>KozmikOdak | Hakkında</title>
 
-  <style>
-    * { box-sizing: border-box; }
+<style>
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#0b0f1a;
+  color:#fff;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #0b0f2b, #000);
-      color: #fff;
-      min-height: 100vh;
-    }
+/* HEADER */
+header{
+  background:rgba(0,0,0,0.65);
+  backdrop-filter: blur(6px);
+  padding:28px 20px 22px;
+  text-align:center;
+}
 
-    /* ===== HEADER (ORTALI, GÖRSELLE AYNI) ===== */
-    header {
-      background: rgba(0,0,0,0.65);
-      backdrop-filter: blur(6px);
-      padding: 26px 20px 20px;
-      text-align: center;
-    }
+.header-top{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  margin-bottom:16px;
+}
 
-    .header-top {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 14px;
-    }
+.header-top img{
+  width:50px;
+  height:50px;
+}
 
-    .header-top img {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-    }
+.header-top span{
+  font-size:2.3rem;
+  font-weight:bold;
+}
 
-    .header-top span {
-      font-size: 2.2rem;
-      font-weight: bold;
-    }
+nav{
+  display:flex;
+  justify-content:center;
+  gap:52px;
+}
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 48px;
-    }
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:1.55rem;
+}
 
-    nav a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 1.5rem;
-      opacity: 0.9;
-    }
+nav a:hover{
+  color:#4da3ff;
+}
 
-    nav a:hover {
-      color: #8ab4ff;
-    }
+/* HAKKINDA */
+.about{
+  padding:80px 15%;
+  text-align:center;
+}
 
-    /* ===== MAIN ===== */
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 90px 20px;
-      text-align: center;
-    }
+.about h1{
+  font-size:2.4rem;
+  margin-bottom:20px;
+}
 
-    .about-box {
-      background: rgba(255,255,255,0.05);
-      border-radius: 22px;
-      padding: 50px 40px;
-      animation: fadeUp 0.9s ease forwards;
-      opacity: 0;
-      transform: translateY(40px);
-    }
-
-    .about-box h1 {
-      font-size: 2.8rem;
-      margin-bottom: 24px;
-    }
-
-    .about-box p {
-      font-size: 1.2rem;
-      line-height: 1.7;
-      opacity: 0.85;
-      margin-bottom: 18px;
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      position: fixed;
-      right: 10px;
-      bottom: 10px;
-      font-size: 0.75rem;
-      opacity: 0.6;
-    }
-  </style>
+.about p{
+  font-size:1.2rem;
+  line-height:1.7;
+  opacity:.9;
+}
+</style>
 </head>
 
 <body>
 
 <header>
   <div class="header-top">
-    <img src="logo.png" alt="KozmikOdak Logo">
+    <img src="logo.png">
     <span>KozmikOdak</span>
   </div>
 
@@ -122,39 +88,17 @@
   </nav>
 </header>
 
-<main>
-  <div class="about-box">
-    <h1>Hakkında</h1>
-
-    <p>
-      <strong>KozmikOdak</strong>, evrenin gizemlerine, astronomiye,
-      bilime ve teknolojiye ilgi duyan herkes için oluşturulmuş
-      bir keşif platformudur.
-    </p>
-
-    <p>
-      Amacımız; karmaşık konuları sade, anlaşılır ve ilgi çekici
-      bir şekilde sunarak merakı teşvik etmek ve öğrenmeyi
-      keyifli hale getirmektir.
-    </p>
-
-    <p>
-      Bu platform, bilime olan tutkusunu paylaşmak isteyen
-      <strong>İsmail Eren KENANOĞLU</strong> tarafından
-      geliştirilmektedir.
-    </p>
-
-    <p>
-      KozmikOdak şu anda <em>geliştirme aşamasındadır</em> ve
-      çok yakında özgün makaleler, blog yazıları ve projelerle
-      sizlerle olacaktır.
-    </p>
-  </div>
-</main>
-
-<footer>
-  © @İsmail Eren KENANOĞLU
-</footer>
+<div class="about">
+  <h1>KozmikOdak Nedir?</h1>
+  <p>
+    KozmikOdak; uzay, astronomi ve bilimi sade, anlaşılır ve
+    görsel olarak etkileyici şekilde sunmayı amaçlayan
+    bağımsız bir projedir.
+    <br><br>
+    Amacımız evreni merak eden herkes için
+    güvenilir ve ilham verici bir kaynak olmak.
+  </p>
+</div>
 
 </body>
 </html>
